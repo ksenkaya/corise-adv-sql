@@ -16,7 +16,6 @@ with customers as (
         customer_data.first_name || ' ' || customer_data.last_name as customer_name,
         upper(trim(customer_address.customer_city)) as customer_city,
         upper(customer_address.customer_state) as customer_state
-        
     from vk_data.customers.customer_data
     inner join vk_data.customers.customer_address on customer_data.customer_id = customer_address.customer_id
 
