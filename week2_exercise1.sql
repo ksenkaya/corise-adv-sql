@@ -55,10 +55,12 @@ chicago_geo as (
 
 -- geolocation of the the grocery store in Gary
 gary_geo as (
+
     select geo_location
     from cities_cleaned
     where city = 'GARY'  
         and state = 'IN'
+ 
 ),
 
 -- # of food preferences per customer
