@@ -48,8 +48,8 @@ top_recipe as (
 )
 
 -- metrics per day
-	select
-		session_metrics.event_date,
+    select
+	session_metrics.event_date,
         top_recipe.top_recipe_id,
         count(session_metrics.session_id) as num_unique_sessions,
         avg(session_metrics.session_length_in_sec) as avg_session_length_in_sec,
