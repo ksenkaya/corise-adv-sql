@@ -8,21 +8,21 @@ Create a daily report to track the followings:
 
 with events_deduped as (
 
-	select
+    select
     	event_id,
         session_id,
         event_timestamp as event_ts,
         parse_json(event_details):recipe_id::varchar as recipe_id,
         parse_json(event_details):event::varchar as event_name
     from vk_data.events.website_activity
-	group by 1, 2, 3, 4, 5
+    group by 1, 2, 3, 4, 5
 
 ),
 
--- # of unique sessions, session length and # of searches per session
+-- session length and # of searches per session per day
 session_metrics as (
 
-	select 
+    select 
     	event_ts::date as event_date,
         session_id,
         timediff(second, min(event_ts), max(event_ts)) as session_length_in_sec,
